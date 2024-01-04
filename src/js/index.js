@@ -853,7 +853,7 @@
         for (var i=0; i<words.length; i++) {
             var word = words[i];
             var language = getLanguage();
-            if (WORDLISTS[language].indexOf(word) == -1) {
+            if (WORDLISTS[language].indexOf(word) == -1 && WORDLISTS[language].indexOf(word.normalize("NFKC")) == -1) {
                 console.log("Finding closest match to " + word);
                 var nearestWord = findNearestWord(word);
                 return word + " not in wordlist, did you mean " + nearestWord + "?";

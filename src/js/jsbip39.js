@@ -221,7 +221,10 @@ var Mnemonic = function(language) {
             var word = mnemonic[i];
             var wordIndex = wordlist.indexOf(word);
             if (wordIndex == -1) {
-                return null;
+                wordIndex = wordlist.indexOf(word.normalize("NFKC"));
+                if (wordIndex == -1) {
+                    return null;
+                }
             }
             var binaryIndex = zfill(wordIndex.toString(2), 11);
             idx.push(binaryIndex);
