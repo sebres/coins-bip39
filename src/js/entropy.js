@@ -426,7 +426,7 @@ window.Entropy = new (function() {
         // which may be adjusted for bias if log2(base) is fractional
         var bitsPerEvent = base.bitsPerEvent;
         // Supply a 'filtered' entropy string for display purposes
-        var entropyHtml = base.events.join("");
+        var entropyHtml = null;
         if (base.asInt == 52) {
             entropyClean = base.events.join(" ").toUpperCase();
             entropyClean = entropyClean.replace(/C/g, "\u2663");

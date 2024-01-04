@@ -1969,7 +1969,11 @@
         var wordCount = Math.floor(numberOfBits / 32) * 3;
         var bitsPerEvent = entropy.bitsPerEvent.toFixed(2);
         var spacedBinaryStr = addSpacesEveryElevenBits(entropy.binaryStr);
-        DOM.entropyFiltered.html(entropy.cleanHtml);
+        if (entropy.cleanHtml != null) {
+            DOM.entropyFiltered.html(entropy.cleanHtml);
+        } else {
+            DOM.entropyFiltered.text(entropy.cleanStr);
+        }
         DOM.entropyType.text(entropyTypeStr);
         DOM.entropyCrackTime.text(timeToCrack);
         DOM.entropyEventCount.text(entropy.base.events.length);
