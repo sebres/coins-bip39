@@ -3870,6 +3870,27 @@
     }
     // ELA - Elastos functions - end
 
+    // PWD-GEN Dialog
+    PwdGenDlgArgs = {url:"bip39@coin"};
+    function showPwdGenDlg() {
+        const w = 528, h = 380, x = screen.availLeft + (screen.availWidth - w)/2, y = screen.availTop + (screen.availHeight - h)/2;
+        var wnd = window.open('../pwd-gen/', 'pwd-gen-dlg', 'top='+y+',left='+x+',height='+h+',width='+w+',popup=true');
+        wnd.arguments = [PwdGenDlgArgs];
+        wnd.addEventListener("load", (event) => {
+          wnd._d.e('pwdDTLD').checked = false;
+          wnd._d.e('pwdVeryLng').checked = true;
+          PwdGenDlgArgs.onSelect = function() {
+            const res = PwdGenDlgArgs.ret; PwdGenDlgArgs.ret = null;
+            var base = 'base 91'; // !wnd._d.e('pwdAlNum').checked ? 'base 91' : 'base 64';
+            DOM.entropyTypeInputs.filter("[value='"+base+"']").prop("checked", true);
+            entropyTypeAutoDetect = false;
+            DOM.entropy.text(res).trigger('input');
+          };
+        });
+        return false;
+    }
+    $(".pwd-gen").on("click", showPwdGenDlg);
+
     init();
 
 })();
