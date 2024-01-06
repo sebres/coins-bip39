@@ -303,6 +303,9 @@
         // Show the word indexes
         showWordIndexes();
         writeSplitPhrase(phrase);
+        // Auto-resize mnemonic box vertically
+        DOM.phrase.css('height', '54px');
+        DOM.phrase.css('height', Math.min(DOM.phrase.prop('scrollHeight')+2, 94)+'px');
     }
 
     function tabChanged() {
