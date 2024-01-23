@@ -4,7 +4,9 @@ A tool for converting BIP39 mnemonic phrases to addresses and private keys.
 
 ## Online Version
 
-https://iancoleman.io/bip39/
+https://sebres.github.io/bip39/ (version with [pwd-gen](https://sebres.github.io/pwd-gen/))
+
+https://iancoleman.io/bip39/ (original version)
 
 ## Standalone offline version
 
