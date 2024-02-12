@@ -3887,7 +3887,7 @@
             var base = 'base 91'; // !wnd._d.e('pwdAlNum').checked ? 'base 91' : 'base 64';
             DOM.entropyTypeInputs.filter("[value='"+base+"']").prop("checked", true);
             entropyTypeAutoDetect = false;
-            DOM.entropy.text(res).trigger('input');
+            DOM.entropy.val(res).trigger('input');
           };
         });
         return false;
